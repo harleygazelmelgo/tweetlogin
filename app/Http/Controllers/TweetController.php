@@ -34,19 +34,26 @@ class TweetController extends Controller
 
     }
 
-    function deleteTweet($id) {
+    function deleteTweet(Request $request) {
 
-        $tweet = \App\Tweet::find($id);
+        $tweet = \App\Tweet::find($request->get('id'));
         $tweet->delete();
+
+        $result = \App\Tweet::all();
+        return view ('layouts.profile', ['tweets' => $result]);
 
     }
 
-    function updateTweet(Request $request, $id) {
-        $tweet = \App\Tweet::find($id);
+    function updateTweet(Request $request) {
+        $tweet = \App\Tweet::find($request->get('id'));
         $tweet->author = $request->author;
         $tweet->content = $request->content;
         $tweet->save();
 
+        $result = \App\Tweet::all();
+        return view ('layouts.profile', ['tweets' => $result]);
+
     }
+
 
 }

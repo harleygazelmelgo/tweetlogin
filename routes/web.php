@@ -25,4 +25,4 @@ Route::get('/profile/postTweet', 'TweetController@postTweet');
 
 Route::get('/profile/deleteTweet', 'TweetController@deleteTweet');
 
-Route::get('/profile/editTweet', 'TweetController@editTweet');
+Route::get('/profile/updateTweet', 'TweetController@updateTweet');

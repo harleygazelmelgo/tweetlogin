@@ -44,14 +44,14 @@ class TweetController extends Controller
 
     }
 
-    function updateTweet(Request $request) {
+        function updateTweet(Request $request) {
         $tweet = \App\Tweet::find($request->get('id'));
-        $tweet->author = $request->author;
-        $tweet->content = $request->content;
-        $tweet->save();
+        // $tweet->author = $request->author;
+        // $tweet->content = $request->content;
+        // $tweet->save();
 
         $result = \App\Tweet::all();
-        return view ('layouts.profile', ['tweets' => $result]);
+        return view ('layouts.editTweet', ['tweets' => $result]);
 
     }
 

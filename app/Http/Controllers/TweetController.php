@@ -55,5 +55,17 @@ class TweetController extends Controller
 
     }
 
+    function showAllUsers () {
+        if(Auth::check()) {
+        $users = \App\User::all();
+        $follows = \App\Follows::where('following', Auth::user()->name)->get();
+        return view ('layouts.allUsers', ['users' => $users, 'follows' => $follows]);
+        } else {
+            return redirect('/home');
+        }
+
+    }
+
+
 
 }

@@ -26,3 +26,5 @@ Route::get('/profile/postTweet', 'TweetController@postTweet');
 Route::get('/profile/deleteTweet', 'TweetController@deleteTweet');
 
 Route::get('/profile/updateTweet', 'TweetController@updateTweet');
+
+Route::get('/showProfiles', 'TweetController@showAllUsers');
